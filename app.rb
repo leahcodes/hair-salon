@@ -30,9 +30,21 @@ post('/stylists/new') do
 end
 
 get('/stylists/:id') do
-
+   @stylist = Stylist.find(params.fetch("id").to_i())
+   @clients = Client.all()
+   erb(:stylist)
 end
 
-get('/stylists/delete') do
-   erb(:stylist_delete)
+post('/stylist/:id') do
+   @stylist = Stylist.find(params.fetch("id").to_i())
+   @clients = Client.all()
+   redirect("/stylists/#{@stylist.id()}")
+end
+
+get('/stylists/:id/update') do
+   erb(:stylist_update)
+end
+
+post('/stylist/:id/delete') do
+   redirect("/stylists")
 end

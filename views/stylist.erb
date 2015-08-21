@@ -12,3 +12,46 @@
     </div>
   </div>
 </nav>
+
+<h1><%= @stylist.name()%></h1>
+
+<h3>Specialty: <%= @stylist.specialty() %></h3>
+
+<% if @stylist.clients().any? %>
+
+<h3>Current clients:</h3>
+
+<ul>
+   <% @stylist.clients().each() do |client| %>
+   <li><%= client.name() %>, <%= client.phone() %></li>
+   <% end %>
+</ul>
+
+<% else %>
+<h3>No current clients.</h3>
+<% end %>
+
+
+<h3>Add clients for <%= @stylist.name()%>:</h3>
+<% if @clients.any?() %>
+<form action = "/stylists/<%= @stylist.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+
+  <% @clients.each() do |client| %>
+    <div class="checkbox">
+    <label>
+        <input type="checkbox" name="client_ids[]" value="<%= client.id() %>"><%= client.name() %>
+      </label>
+    </div>
+  <% end %>
+<% else %>
+<h4>No clients to add. <a href="/clients/new">Add one here</a>.</h4>
+<% end %>
+
+<br><br><br>
+<a class="btn-lg btn-info" href="/stylists/<%= @stylist.id() %>/update" role="button">Update Stylist Info</a>
+<br><br>
+<form action = "/stylists/<%= @stylist.id %>/delete" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button type="submit" class="btn-danger btn-lg">Delete this stylist</button>
+</form>
