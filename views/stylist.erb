@@ -32,27 +32,27 @@
 <h3>No current clients.</h3>
 <% end %>
 
+<h3>Add a new client:</h3>
+<form action="/stylists/:id/new_client" method="post">
+  <div class="form-group">
 
-<h3>Add clients for <%= @stylist.name()%>:</h3>
-<% if @clients.any?() %>
-<form action = "/stylists/<%= @stylist.id %>" method="post">
-  <input type="hidden" name="_method" value="patch">
+    <input id="stylist_id" name="stylist_id" type="hidden" value="<%= @stylist.id() %>">
 
-  <% @clients.each() do |client| %>
-    <div class="checkbox">
-    <label>
-        <input type="checkbox" name="client_ids[]" value="<%= client.id() %>"><%= client.name() %>
-      </label>
-    </div>
-  <% end %>
-<% else %>
-<h4>No clients to add. <a href="/clients/new">Add one here</a>.</h4>
-<% end %>
+    <label class="form-label" for="name">Name:</label>
+    <input id="name" name="name" type="text" class="form-control" required="true">
+
+    <label class="form-label" for="phone">Phone number:</label>
+    <input id="phone" name="phone" type="text" class="form-control" required="true">
+
+    <button name="submit" class="btn">Add Client</button>
+  </div>
+</form>
 
 <br><br><br>
 <a class="btn-lg btn-info" href="/stylists/<%= @stylist.id() %>/update" role="button">Update Stylist Info</a>
 <br><br>
-<form action = "/stylists/<%= @stylist.id %>/delete" method="post">
+
+<form action = "/stylists/<%= @stylist.id() %>/delete" method="post">
   <input type="hidden" name="_method" value="delete">
   <button type="submit" class="btn-danger btn-lg">Delete this stylist</button>
 </form>

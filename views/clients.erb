@@ -6,7 +6,7 @@
     <div>
       <ul class="nav navbar-nav">
         <li><a href="/stylists">Stylists</a></li>
-        <li><a href="/clients">Clients</a></li>
+        <li class="active"><a href="/clients">Clients</a></li>
         <li><a href="/">Home</a></li>
       </ul>
     </div>
@@ -22,8 +22,12 @@
 <% if @clients.any?() %>
 <h2>Clients</h2>
 <ul>
-  <% @clients.each() do |stylist| %>
-    <li><a href="/clients/<%= client.id() %>"><%= client.name() %></a></li>
+  <% @clients.each() do |client| %>
+    <li><a href="/clients/<%= client.id() %>"><%= client.name() %></a>
+      <br>Phone: <%= client.phone() %>
+   </li>
   <% end %>
 </ul>
+<% else %>
+<h4>There are no clients yet.</h4>
 <% end %>

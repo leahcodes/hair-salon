@@ -1,0 +1,28 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand">Staff Portal</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li><a href="/stylists">Stylists</a></li>
+        <li class="active"><a href="/clients">Clients</a></li>
+        <li><a href="/">Home</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<h1>First, select the stylist for the client:</h1>
+
+<% if @stylists.any?() %>
+
+<ul>
+   <% @stylists.each() do |stylist| %>
+      <li><a href="/stylists/<%= stylist.id() %>/new_client"><%= stylist.name() %></a></li>
+   <% end %>
+</ul>
+
+<% else %>
+  <h4>There are no stylists in the database!<a class="btn-lg btn-info" href="/stylists/new" role="button">Add a Stylist</a></h4>
+<% end %>

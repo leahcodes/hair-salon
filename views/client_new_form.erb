@@ -13,20 +13,18 @@
   </div>
 </nav>
 
-<h1>Add a Stylist</h1>
+<h1>Add a Client</h1>
 
-<form action="/stylists/new" method="post">
+<form action="/stylists/<%= @stylist.id() %>/new_client" method="post">
 
   <div class="form-group">
+     <input id="stylist_id" name="stylist_id" type="hidden" value="<%= @stylist.id() %>">
 
     <label class="form-label" for="name">Name:</label>
-    <input id="name" name="name" type="text" class="form-control" required="true">
+    <input id="name" name="name" type="text" class="form-control">
 
     <label class="form-label" for="phone">Phone Number:</label>
-    <input id="phone" name="phone" type="text" class="form-control" required="true">
-
-    <label class="form-label" for="specialty">Specialty:</label>
-    <input id="specialty" name="specialty" type="text" class="form-control" required="true">
+    <input id="phone" name="phone" type="text" class="form-control">
 
     <button name="submit" class="btn-lg btn-info">Add</button>
 

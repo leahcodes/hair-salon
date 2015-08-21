@@ -41,6 +41,21 @@ post('/stylist/:id') do
    redirect("/stylists/#{@stylist.id()}")
 end
 
+post('/stylists/:id/new_client') do
+   name = params.fetch("name")
+   phone = params.fetch("phone")
+   stylist_id = params.fetch("stylist_id")
+   client = Client.new(:id => nil, :name => name, :phone => phone, :stylist_id => stylist_id)
+   client.save()
+   @stylist = Stylist.find(params.fetch("stylist_id").to_i())
+   redirect("/stylists/#{@stylist.id()}")
+end
+
+get('/stylists/:id/new_client') do
+   @stylist = Stylist.find(params.fetch("id").to_i())
+   erb(:client_new_form)
+end
+
 get('/stylists/:id/update') do
    @stylist = Stylist.find(params.fetch("id").to_i())
    erb(:stylist_update)
@@ -67,7 +82,7 @@ patch('/stylists/:id/update_phone') do
    redirect("/stylists/#{@stylist.id()}")
 end
 
-delete('/stylist/:id/delete') do
+delete('/stylists/:id/delete') do
    @stylist = Stylist.find(params.fetch("id").to_i())
    @stylist.delete()
    redirect("/stylists")
@@ -76,4 +91,39 @@ end
 get('/clients') do
    @clients = Client.all()
    erb(:clients)
+end
+
+get('/clients/new') do
+   @stylists = Stylist.all()
+   erb(:clients_new)
+end
+
+get('/clients/:id') do
+   @client = Client.find(params.fetch("id").to_i())
+   erb(:client)
+end
+
+get('/clients/:id/update') do
+   @client = Client.find(params.fetch("id").to_i())
+   erb(:client_update)
+end
+
+patch('/clients/:id/update_name') do
+   @client = Client.find(params.fetch("id").to_i())
+   name = params.fetch("name")
+   @client.update_name(:name => name)
+   redirect("/clients/#{@client.id()}")
+end
+
+patch('/clients/:id/update_phone') do
+   @client = Client.find(params.fetch("id").to_i())
+   phone = params.fetch("phone")
+   @client.update_phone(:phone => phone)
+   redirect("/clients/#{@client.id()}")
+end
+
+delete('/clients/:id/delete') do
+   @client = Client.find(params.fetch("id").to_i())
+   @client.delete()
+   redirect("/clients")
 end
