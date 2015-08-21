@@ -15,3 +15,24 @@ get('/stylists') do
    @stylists = Stylist.all()
    erb(:stylists)
 end
+
+get('/stylists/new') do
+   erb(:stylist_new)
+end
+
+post('/stylists/new') do
+   name = params.fetch("name")
+   phone = params.fetch("phone")
+   specialty = params.fetch("specialty")
+   @stylist = Stylist.new(:id => nil, :name => name, :phone => phone, :specialty => specialty)
+   @stylist.save()
+   redirect("/stylists/#{@stylist.id()}")
+end
+
+get('/stylists/:id') do
+
+end
+
+get('/stylists/delete') do
+   erb(:stylist_delete)
+end
