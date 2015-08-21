@@ -20,4 +20,6 @@ class Stylist
     end
     stylists
   end
+
+
 end
