@@ -16,6 +16,11 @@ get('/stylists') do
    erb(:stylists)
 end
 
+get('/clients') do
+   @clients = Client.all()
+   erb(:clients)
+end
+
 get('/stylists/new') do
    erb(:stylist_new)
 end
@@ -86,11 +91,6 @@ delete('/stylists/:id/delete') do
    @stylist = Stylist.find(params.fetch("id").to_i())
    @stylist.delete()
    redirect("/stylists")
-end
-
-get('/clients') do
-   @clients = Client.all()
-   erb(:clients)
 end
 
 get('/clients/new') do

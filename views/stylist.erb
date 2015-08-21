@@ -15,8 +15,8 @@
 
 <h1><%= @stylist.name()%></h1>
 
-<h3>Specialty: <%= @stylist.specialty() %></h3>
-<h3>Phone number: <%= @stylist.phone() %></h3>
+<h3><i>Specialty:</i> <%= @stylist.specialty() %></h3>
+<h3><i>Phone number:</i> <%= @stylist.phone() %></h3>
 
 <% if @stylist.clients().any? %>
 
@@ -33,7 +33,7 @@
 <% end %>
 
 <h3>Add a new client:</h3>
-<form action="/stylists/:id/new_client" method="post">
+<form class="border" action="/stylists/:id/new_client" method="post">
   <div class="form-group">
 
     <input id="stylist_id" name="stylist_id" type="hidden" value="<%= @stylist.id() %>">
@@ -43,8 +43,8 @@
 
     <label class="form-label" for="phone">Phone number:</label>
     <input id="phone" name="phone" type="text" class="form-control" required="true">
-
-    <button name="submit" class="btn">Add Client</button>
+    <br>
+    <button name="submit" class="btn-lg btn-info">Add Client</button>
   </div>
 </form>
 

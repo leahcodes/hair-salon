@@ -1,31 +1,34 @@
-<h4>Update info for <%= @stylist.name() %>:</h4>
-
-<form action = "/stylists/<%= @stylist.id %>/update_name" method="post">
+<h1>Update info for <%= @stylist.name() %>:</h1>
+<br>
+<form class="border" action = "/stylists/<%= @stylist.id %>/update_name" method="post">
   <input type="hidden" name="_method" value="patch" class="form-control">
 
-  <label for="name">Change name to:</label>
+  <label class="form-label"for="name">Change name to:</label>
   <input id="name" name="name" type="text" class="form-control">
-
+  <br>
   <button type="submit" class="btn btn-info btn-lg">Update</button>
 
 </form>
-
-<form action = "/stylists/<%= @stylist.id %>/update_specialty" method="post">
+<br><br>
+<form class="border" action = "/stylists/<%= @stylist.id %>/update_specialty" method="post">
   <input type="hidden" name="_method" value="patch" class="form-control">
 
-  <label for="specialty">Change specialty to:</label>
+  <label class="form-label"for="specialty">Change specialty to:</label>
   <input id="specialty" name="specialty" type="text" class="form-control">
-
+  <br>
   <button type="submit" class="btn btn-info btn-lg">Update</button>
 
 </form>
+<br><br>
 
-<form action = "/stylists/<%= @stylist.id %>/update_phone" method="post">
+<form class="border" action = "/stylists/<%= @stylist.id %>/update_phone" method="post">
   <input type="hidden" name="_method" value="patch" class="form-control">
 
-  <label for="phone">Change phone number to:</label>
+  <label class="form-label"for="phone">Change phone number to:</label>
   <input id="phone" name="phone" type="text" class="form-control">
-
+  <br>
   <button type="submit" class="btn btn-info btn-lg">Update</button>
 
 </form>
+<br><br><br>
+<a class="btn-lg btn-warning" href="/stylists/<%= @stylist.id() %>" role="button">Back</a>

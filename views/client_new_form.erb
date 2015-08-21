@@ -21,11 +21,11 @@
      <input id="stylist_id" name="stylist_id" type="hidden" value="<%= @stylist.id() %>">
 
     <label class="form-label" for="name">Name:</label>
-    <input id="name" name="name" type="text" class="form-control">
+    <input id="name" name="name" type="text" class="form-control" required="true">
 
     <label class="form-label" for="phone">Phone Number:</label>
-    <input id="phone" name="phone" type="text" class="form-control">
-
+    <input id="phone" name="phone" type="text" class="form-control" required="true">
+    <br>
     <button name="submit" class="btn-lg btn-info">Add</button>
 
   </div>

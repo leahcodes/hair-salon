@@ -1,0 +1,44 @@
+body {
+   background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url('/img/bg.png') repeat center center;
+}
+h1 {
+   font-size: 4em;
+   color: #33485C;
+}
+
+.welcome_text {
+   font-size: 4em;
+}
+
+li {
+   font-size: 20px;
+}
+
+.welcome {
+  text-align: center;
+  color: #33485C;
+  float: center;
+  background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5));
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 20%;
+  padding: 15px;
+  border-radius: 25px;
+}
+
+form.border {
+   border-width: 1px;
+   border-style: solid;
+   border-color: #33485C;;
+   padding: 10px;
+}
+.form-label {
+   font-size: 18px;
+}
+
+hr {
+   height: 3px;
+   color: #33485C;
+   background-color: #33485C;
+   border: none;
+}
