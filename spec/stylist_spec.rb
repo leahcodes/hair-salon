@@ -54,4 +54,13 @@ describe(Stylist) do
          expect(Stylist.find(stylist1.id())).to(eq(stylist1))
       end
    end
+
+   describe('#update_name') do
+      it('allows a user to udpate the stylist name') do
+         stylist1 = Stylist.new({:id => nil, :name => "Barbie Barber", :phone => "5031234567", :specialty => "Short cuts"})
+         stylist1.save()
+         stylist1.update_name({:name => "Sandy Locks"})
+         expect(stylist1.name()).to(eq("Sandy Locks"))
+      end
+   end
 end
