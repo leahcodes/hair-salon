@@ -63,4 +63,13 @@ describe(Stylist) do
          expect(stylist1.name()).to(eq("Sandy Locks"))
       end
    end
+
+   describe('#update_phone') do
+      it('allows a user to udpate the stylist phone') do
+         stylist1 = Stylist.new({:id => nil, :name => "Barbie Barber", :phone => "5031234567", :specialty => "Short cuts"})
+         stylist1.save()
+         stylist1.update_phone({:phone => "5411234567"})
+         expect(stylist1.phone()).to(eq("5411234567"))
+      end
+   end
 end
