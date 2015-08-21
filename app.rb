@@ -42,9 +42,24 @@ post('/stylist/:id') do
 end
 
 get('/stylists/:id/update') do
+   @stylist = Stylist.find(params.fetch("id").to_i())
    erb(:stylist_update)
 end
 
-post('/stylist/:id/delete') do
+patch('/stylists/:id/update_name') do
+   @stylist = Stylist.find(params.fetch("id").to_i())
+   name = params.fetch("name")
+   @stylist.update_name(:name => name)
+   redirect("/stylists/#{@stylist.id()}")
+end
+
+patch('/stylists/:id/update_specialty') do
+   @stylist = Stylist.find(params.fetch("id").to_i())
+   specialty = params.fetch("specialty")
+   @stylist.update_specialty(:specialty => specialty)
+   redirect("/stylists/#{@stylist.id()}")
+end
+
+delete('/stylist/:id/delete') do
    redirect("/stylists")
 end
