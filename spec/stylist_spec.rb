@@ -14,4 +14,11 @@ describe(Stylist) do
        expect(stylist.name()).to(eq("Barbie Barber"))
      end
    end
+
+   describe("#phone") do
+     it("tells you the stylists phone") do
+       stylist = Stylist.new({:id => nil, :name => "Barbie Barber", :phone => 5031234567, :specialty => "Short cuts"})
+       expect(stylist.phone()).to(eq(5031234567))
+     end
+  end
 end
