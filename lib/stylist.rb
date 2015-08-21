@@ -51,4 +51,10 @@ class Stylist
      @id = self.id()
      DB.exec("UPDATE stylists SET phone = '#{@phone}' WHERE id = #{@id};")
    end
+
+   define_method(:update_specialty) do |attributes|
+     @specialty = attributes.fetch(:specialty)
+     @id = self.id()
+     DB.exec("UPDATE stylists SET specialty = '#{@specialty}' WHERE id = #{@id};")
+   end
 end
