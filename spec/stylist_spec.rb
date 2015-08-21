@@ -10,7 +10,7 @@ describe(Stylist) do
 
    describe("#name") do
       it("tells you the stylist name") do
-         stylist = Stylist.new({:id => nil, :name => "Barbie Barber", :phone => "503-123-4567", :specialty => "Short cuts"})
+         stylist = Stylist.new({:id => nil, :name => "Barbie Barber", :phone => "5031234567", :specialty => "Short cuts"})
          expect(stylist.name()).to(eq("Barbie Barber"))
       end
    end
