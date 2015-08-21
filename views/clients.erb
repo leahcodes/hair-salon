@@ -13,17 +13,17 @@
   </div>
 </nav>
 
-<h1>Stylists</h1>
+<h1>Clients</h1>
 <br><br>
-<a class="btn-lg btn-info" href="/stylists/new" role="button">Add a Stylist</a>
-<a class="btn-lg btn-danger" href="/stylists/delete" role="button">Delete a Stylist</a>
+<a class="btn-lg btn-info" href="/clients/new" role="button">Add a Client</a>
+<a class="btn-lg btn-danger" href="/clients/delete" role="button">Delete a Client</a>
 
 
-<% if @stylists.any?() %>
-<h2>Stylists</h2>
+<% if @clients.any?() %>
+<h2>Clients</h2>
 <ul>
-  <% @stylists.each() do |stylist| %>
-    <li><a href="/stylists/<%= stylist.id() %>"><%= stylist.name() %></a></li>
+  <% @clients.each() do |stylist| %>
+    <li><a href="/clients/<%= client.id() %>"><%= client.name() %></a></li>
   <% end %>
 </ul>
 <% end %>

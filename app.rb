@@ -60,6 +60,20 @@ patch('/stylists/:id/update_specialty') do
    redirect("/stylists/#{@stylist.id()}")
 end
 
+patch('/stylists/:id/update_phone') do
+   @stylist = Stylist.find(params.fetch("id").to_i())
+   phone = params.fetch("phone")
+   @stylist.update_phone(:phone => phone)
+   redirect("/stylists/#{@stylist.id()}")
+end
+
 delete('/stylist/:id/delete') do
+   @stylist = Stylist.find(params.fetch("id").to_i())
+   @stylist.delete()
    redirect("/stylists")
+end
+
+get('/clients') do
+   @clients = Client.all()
+   erb(:clients)
 end
