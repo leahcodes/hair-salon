@@ -8,6 +8,10 @@ class Stylist
       @specialty = attributes.fetch(:specialty)
    end
 
+   define_method(:==) do |another_stylist|
+      self.name().==(another_stylist.name()).&(self.phone().==(another_stylist.phone())).&(self.id().==(another_stylist.id()))
+   end
+
    define_singleton_method(:all) do
       returned_stylists = DB.exec("SELECT * FROM stylists;")
       stylists = []
@@ -21,5 +25,9 @@ class Stylist
     stylists
   end
 
+   define_method(:save) do
+      result = DB.exec("INSERT INTO stylists (name, phone, specialty) VALUES ('#{@name}', #{@phone}, '#{@specialty}') RETURNING id;")
+      @id = result.first().fetch("id").to_i()
+   end
 
 end
